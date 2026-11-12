@@ -31,7 +31,7 @@ Turma: G104190
 
 - [ ] O projeto deve ser upado no GitHub.
 
-- [ ] \(Optional) Salvar e ler os dados corretamente em arquivos (1,0 ponto extra).
+- [ ] \(Opcional) Salvar e ler os dados corretamente em arquivos (1,0 ponto extra).
 
 -----------------------------------------------------------------------------------------------------
 
