@@ -1,6 +1,6 @@
 # sistema-aluguel-filmes-projeto-final
 
-SISTEMA DE ALUGUEL DE FILMES
+## **SISTEMA DE ALUGUEL DE FILMES**
 
 Projeto final de lógica de programação do 1o semestre de desenvolvimento de sistemas pelo SENAI.
 
@@ -8,11 +8,11 @@ Professor: Victor Moak da Silva Souza
 
 Turma: G104190
 
-Critérios de Avaliação
+### **Critérios de Avaliação**
 
 /-------------------------------------------------------------/
 
-Resultados comuns para todos os sistemas.
+### **Resultados comuns para todos os sistemas.**
 
 
 Contém uma interface clara e bem estruturada para o usuário.
@@ -29,8 +29,9 @@ Salvar e ler os dados corretamente em arquivos (1,0 ponto extra).
 
 /-------------------------------------------------------------/
 
-Sistema de aluguel de filme
-GRUPO 01
+### **Sistema de aluguel de filme**
+
+#### **GRUPO 01**
 
 Deve ser capaz de cadastrar filmes.
 
