@@ -5,16 +5,20 @@ build/
 out/
 
 # --- Packaging Archives ---
-**.jar
-**.war
-**.ear
+*.jar
+*.war
+*.ear
+
+# --- JVM Diagnostic Logs ---
+hs_err_pid*
+*.log
 
 # --- IDE Specific Files ---
 
 # IntelliJ IDEA
 .idea/
-**.iml
-**.iws
+*.iml
+*.iws
 
 # Eclipse
 .settings/
@@ -34,3 +38,5 @@ bin/
 # --- Operating System Junk ---
 .DS_Store
 Thumbs.db
+Desktop.ini
+._*
