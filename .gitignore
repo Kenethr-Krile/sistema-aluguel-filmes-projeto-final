@@ -1,0 +1,36 @@
+# --- Compiled & Build Output ---
+*.class
+target/
+build/
+out/
+
+# --- Packaging Archives ---
+**.jar
+**.war
+**.ear
+
+# --- IDE Specific Files ---
+
+# IntelliJ IDEA
+.idea/
+**.iml
+**.iws
+
+# Eclipse
+.settings/
+.project
+.classpath
+bin/
+
+# NetBeans
+**/nbproject/private/
+**/build/
+**/nbbuild/
+**/dist/
+
+# VS Code
+.vscode/
+
+# --- Operating System Junk ---
+.DS_Store
+Thumbs.db
