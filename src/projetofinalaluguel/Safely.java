@@ -3,8 +3,10 @@ package projetofinalaluguel;
 
 import java.util.Scanner;
 
+//Classe auxiliar para tratamento de erros relacionados ao tipo de variavel digita pelo cliente em inputs.
 public class Safely {
-
+    
+    //tratamento de inteiros.
     public static int getInt(Scanner read){
         while (true){
             try{
@@ -15,6 +17,7 @@ public class Safely {
             }
         }
     }
+    // Tratamento de Doubles
     public static double getDouble(Scanner read){
         while (true){
             try{
@@ -25,7 +28,8 @@ public class Safely {
             }
         }
     }
-     public static float getFloat(Scanner read){
+    // Tratamento de Floats.
+    public static float getFloat(Scanner read){
         while (true){
             try{
                 return Float.parseFloat(read.nextLine().trim());
@@ -35,7 +39,8 @@ public class Safely {
             }
         }
     }
-     public static String getLine(Scanner read){
+    // Tratamento de texto.
+    public static String getLine(Scanner read){
         while (true){
             String input = read.nextLine().trim();
             if ( !input.isEmpty() ){
