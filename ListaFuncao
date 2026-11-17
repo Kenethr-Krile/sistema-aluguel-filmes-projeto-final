@@ -1,0 +1,139 @@
+package listas;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+    
+    public class ListaFuncao {
+        
+public static void listarFilmes() {
+
+    System.out.println("\n CATALOGO DE FILMES");
+
+    String arquivo = "filmes.txt";
+
+    try (BufferedReader br = new BufferedReader(
+            new FileReader(arquivo))) {
+
+        String linha;
+        int contador = 0;
+
+        while ((linha = br.readLine()) != null) {
+
+            String[] dados = linha.split(";");
+
+            // Verifica se o registro possui os 7 campos
+            if (dados.length != 7) {
+                System.out.println("Registro invalido: " + linha);
+                continue;
+            }
+
+            contador++;
+
+            System.out.println("\n----------------------------------------");
+            System.out.printf("FILME #%d\n", contador);
+            System.out.println("----------------------------------------");
+
+            System.out.printf("Titulo:       %s\n", dados[0]);
+            System.out.printf("Ano:          %s\n", dados[1]);
+            System.out.printf("Classificacao:%s anos\n", dados[2]);
+            System.out.printf("Duracao:      %s minutos\n", dados[3]);
+            System.out.printf("Genero:       %s\n", dados[4]);
+            System.out.printf("Nota:         %s/10\n", dados[5]);
+            System.out.printf("Preco:        R$ %s\n", dados[6]);
+
+        }
+
+        System.out.println("\n----------------------------------------");
+        System.out.println("Total de filmes cadastrados: " + contador);
+        System.out.println("========================================");
+
+    } catch (IOException e) {
+
+        System.out.println("Erro ao ler arquivo: " + e.getMessage());
+
+    }
+}
+
+        
+        public static void listarClientes(){
+            
+            {
+
+    System.out.println("\n LISTA DE CLIENTES");
+
+    String arquivo = "clientes.txt";
+
+    try (BufferedReader br = new BufferedReader(
+            new FileReader(arquivo))) {
+
+        String linha;
+        int contador = 0;
+
+        while ((linha = br.readLine()) != null) {
+
+            String[] dados = linha.split(";");
+
+            // Verifica se o registro possui os 7 campos
+            if (dados.length != 5) {
+                System.out.println("Registro invalido: " + linha);
+                continue;
+            }
+
+            contador++;
+
+            System.out.println("\n----------------------------------------");
+            System.out.printf("FILME #%d\n", contador);
+            System.out.println("----------------------------------------");
+
+            System.out.printf("ATRIBUTO CLIENTE 1:       %s\n", dados[0]);
+            System.out.printf("ATRIBUTO CLIENTE 2:          %s\n", dados[1]);
+            System.out.printf("ATRIBUTO CLIENTE 3:%s anos\n", dados[2]);
+            System.out.printf("ATRIBUTO CLIENTE 4:      %s minutos\n", dados[3]);
+            System.out.printf("ATRIBUTO CLIENTE 5:       %s\n", dados[4]);
+        }
+
+        System.out.println("\n----------------------------------------");
+        System.out.println("Total de clientes: " + contador);
+        System.out.println("========================================");
+
+    } catch (IOException e) {
+
+        System.out.println("Erro ao ler arquivo: " + e.getMessage());
+
+            }
+        }
+    }
+        
+        public static void listarLocacaoPorCliente(){
+            
+            System.out.println("Lista de locacoes por cliente");
+            
+        String LerLocacaoPorCliente = "clientes.txt";
+        try (BufferedReader br = new BufferedReader(new FileReader(LerLocacaoPorCliente))){
+            String linha;
+            while ((linha = br.readLine()) != null) {
+                System.out.println(linha);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+        
+        public static void listarLocacao(){
+            
+            System.out.println("Lista de locacoes");
+            
+        String LerLocacao = "arquivo.txt";
+        
+        try (BufferedReader br = new BufferedReader(new FileReader(LerLocacao))){
+            String linha;
+            while ((linha = br.readLine()) != null) {
+                System.out.println(linha);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
