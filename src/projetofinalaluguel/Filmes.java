@@ -33,7 +33,7 @@ public class Filmes {
         Scanner read = new Scanner(System.in);
 
         System.out.printf("Informe o codigo do filme:");
-        titulo = Safely.getLine(read);
+        codigo = Safely.getLine(read);
         System.out.printf("Informe o titulo do filme:");
         titulo = Safely.getLine(read);
         System.out.printf("Informe o ano de lancamento:");
