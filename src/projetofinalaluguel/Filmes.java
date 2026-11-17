@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 
 public class Filmes {
+    
+    String codigo;
     String titulo;
     int anoLancamento;
     int classificacaoIdade;
@@ -17,6 +19,7 @@ public class Filmes {
             
             System.out.printf("\n/--------------- FICHA TECNICA ---------------\\ \n\n");
             
+            System.out.printf("Codigo do Filme: %s\n", codigo);
             System.out.printf("Titulo: %s\n", titulo);
             System.out.printf("Ano: %d \n", anoLancamento);
             System.out.printf("Faixa Etaria: %d\n",classificacaoIdade);
@@ -28,6 +31,8 @@ public class Filmes {
         void cadastrarFicha(){
             Scanner read = new Scanner(System.in);
             
+            System.out.printf("Informe o codigo do filme:");
+            titulo = Safely.getLine(read);
             System.out.printf("Informe o titulo do filme:");
             titulo = Safely.getLine(read);
             System.out.printf("Informe o ano de lancamento:");
