@@ -3,9 +3,79 @@ package listas;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 public class ListaFuncao {
 
+    public static void listarLocacaoPorPeriodo(String dataInicioStr, String dataFimStr) {
+
+        System.out.println("\n RELATORIO DE LOCACOES POR PERIODO (" + dataInicioStr + " a " + dataFimStr + ")");
+
+        String arquivo = "locacoes.txt";
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        try {
+            LocalDate dataInicio = LocalDate.parse(dataInicioStr, formato);
+            LocalDate dataFim = LocalDate.parse(dataFimStr, formato);
+
+            try (BufferedReader br = new BufferedReader(
+                    new FileReader(arquivo))) {
+
+                String linha;
+                int contador = 0;
+                double faturamentoTotal = 0.0;
+
+                while ((linha = br.readLine()) != null) {
+
+                    String[] dados = linha.split(";");
+
+                    if (dados.length != 4) {
+                        System.out.println("Registro invalido: " + linha);
+                        continue;
+                    }
+
+                    try {
+                        LocalDate dataRegistro = LocalDate.parse(dados[2], formato);
+
+                        // Verifica se a data está dentro do intervalo (inclusive dataInicio e dataFim)
+                        if (!dataRegistro.isBefore(dataInicio) && !dataRegistro.isAfter(dataFim)) {
+                            contador++;
+
+                            // Substitui vírgula por ponto caso o valor tenha sido salvo com vírgula
+                            double valorLocacao = Double.parseDouble(dados[3].replace(",", "."));
+                            faturamentoTotal += valorLocacao;
+
+                            System.out.println("\n----------------------------------------");
+                            System.out.printf("LOCACAO #%d\n", contador);
+                            System.out.println("----------------------------------------");
+
+                            System.out.printf("CPF Cliente:  %s\n", dados[0]);
+                            System.out.printf("Filme:        %s\n", dados[1]);
+                            System.out.printf("Data:         %s\n", dados[2]);
+                            System.out.printf("Valor Total:  R$ %.2f\n", valorLocacao);
+                        }
+
+                    } catch (DateTimeParseException | NumberFormatException e) {
+                        System.out.println("Registro com data ou valor invalido: " + linha);
+                    }
+                }
+
+                System.out.println("\n----------------------------------------");
+                System.out.println("Total de locacoes no periodo: " + contador);
+                System.out.printf("Faturamento total do periodo: R$ %.2f\n", faturamentoTotal);
+                System.out.println("========================================");
+
+            } catch (IOException e) {
+                System.out.println("Erro ao ler arquivo: " + e.getMessage());
+            }
+
+        } catch (DateTimeParseException e) {
+            System.out.println("Formato de data invalido! Utilize o padrao DD/MM/AAAA.");
+        }
+    }
+    
     public static void listarFilmes() {
 
         System.out.println("\n CATALOGO DE FILMES");
