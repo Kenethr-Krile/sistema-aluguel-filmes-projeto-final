@@ -34,15 +34,15 @@
 
 ### GRUPO 01
 
-- [ ] Deve ser capaz de cadastrar filmes. 
-- [ ] Deve ser capaz de remover filmes.
-- [ ] Deve ser capaz de listar filmes.
-- [ ] Deve ser capaz de Simular locação.
-- [ ] Deve ser capaz de cadastrar os clientes.
-- [ ] Deve ser capaz de listar os clientes.
+- [ ] Deve ser capaz de cadastrar filmes. //FERNANDO
+- [ ] Deve ser capaz de remover filmes. // IGOR
+- [ ] Deve ser capaz de listar filmes. // YURI
+- [ ] Deve ser capaz de Simular locação. // ANGELO
+- [ ] Deve ser capaz de cadastrar os clientes. 
+- [ ] Deve ser capaz de listar os clientes. // YURI
 - [ ] Deve ser capaz de realizar login.
 - [ ] Deve ser capaz de cadastrar as locações através dos códigos dos filmes e dos clientes.
-- [ ] Deve ser capaz de buscar as locações por cliente.
-- [ ] Deve ser capaz de listar todas as locações.
+- [ ] Deve ser capaz de buscar as locações por cliente. // ANGELO
+- [ ] Deve ser capaz de listar todas as locações. // YURI
 - [ ] Deve ser capaz de buscar as locações por filme.
-- [ ] Deve ser capaz de listar todas as locações por período, calculando o total de faturamento.
+- [ ] Deve ser capaz de listar todas as locações por período, calculando o total de faturamento. // YURI
