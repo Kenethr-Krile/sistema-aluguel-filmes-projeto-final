@@ -4,136 +4,185 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-    
-    public class ListaFuncao {
-        
-public static void listarFilmes() {
+public class ListaFuncao {
 
-    System.out.println("\n CATALOGO DE FILMES");
+    public static void listarFilmes() {
 
-    String arquivo = "filmes.txt";
+        System.out.println("\n CATALOGO DE FILMES");
 
-    try (BufferedReader br = new BufferedReader(
-            new FileReader(arquivo))) {
+        String arquivo = "filmes.txt";
 
-        String linha;
-        int contador = 0;
+        try (BufferedReader br = new BufferedReader(
+                new FileReader(arquivo))) {
 
-        while ((linha = br.readLine()) != null) {
+            String linha;
+            int contador = 0;
 
-            String[] dados = linha.split(";");
+            while ((linha = br.readLine()) != null) {
 
-            // Verifica se o registro possui os 7 campos
-            if (dados.length != 7) {
-                System.out.println("Registro invalido: " + linha);
-                continue;
+                String[] dados = linha.split(";");
+
+                // Verifica se o registro possui os 7 campos
+                if (dados.length != 7) {
+                    System.out.println("Registro invalido: " + linha);
+                    continue;
+                }
+
+                contador++;
+
+                System.out.println("\n----------------------------------------");
+                System.out.printf("FILME #%d\n", contador);
+                System.out.println("----------------------------------------");
+
+                System.out.printf("Titulo:       %s\n", dados[0]);
+                System.out.printf("Ano:          %s\n", dados[1]);
+                System.out.printf("Classificacao:%s anos\n", dados[2]);
+                System.out.printf("Duracao:      %s minutos\n", dados[3]);
+                System.out.printf("Genero:       %s\n", dados[4]);
+                System.out.printf("Nota:         %s/10\n", dados[5]);
+                System.out.printf("Preco:        R$ %s\n", dados[6]);
+
             }
-
-            contador++;
 
             System.out.println("\n----------------------------------------");
-            System.out.printf("FILME #%d\n", contador);
-            System.out.println("----------------------------------------");
+            System.out.println("Total de filmes cadastrados: " + contador);
+            System.out.println("========================================");
 
-            System.out.printf("Titulo:       %s\n", dados[0]);
-            System.out.printf("Ano:          %s\n", dados[1]);
-            System.out.printf("Classificacao:%s anos\n", dados[2]);
-            System.out.printf("Duracao:      %s minutos\n", dados[3]);
-            System.out.printf("Genero:       %s\n", dados[4]);
-            System.out.printf("Nota:         %s/10\n", dados[5]);
-            System.out.printf("Preco:        R$ %s\n", dados[6]);
-
+        } catch (IOException e) {
+            System.out.println("Erro ao ler arquivo: " + e.getMessage());
         }
-
-        System.out.println("\n----------------------------------------");
-        System.out.println("Total de filmes cadastrados: " + contador);
-        System.out.println("========================================");
-
-    } catch (IOException e) {
-
-        System.out.println("Erro ao ler arquivo: " + e.getMessage());
-
     }
-}
 
-        
-        public static void listarClientes(){
-            
-            {
+    public static void listarClientes() {
 
-    System.out.println("\n LISTA DE CLIENTES");
+        System.out.println("\n LISTA DE CLIENTES");
 
-    String arquivo = "clientes.txt";
+        String arquivo = "clientes.txt";
 
-    try (BufferedReader br = new BufferedReader(
-            new FileReader(arquivo))) {
+        try (BufferedReader br = new BufferedReader(
+                new FileReader(arquivo))) {
 
-        String linha;
-        int contador = 0;
+            String linha;
+            int contador = 0;
 
-        while ((linha = br.readLine()) != null) {
+            while ((linha = br.readLine()) != null) {
 
-            String[] dados = linha.split(";");
+                String[] dados = linha.split(";");
 
-            // Verifica se o registro possui os 7 campos
-            if (dados.length != 5) {
-                System.out.println("Registro invalido: " + linha);
-                continue;
+                // Verifica se o registro possui os 5 campos
+                if (dados.length != 5) {
+                    System.out.println("Registro invalido: " + linha);
+                    continue;
+                }
+
+                contador++;
+
+                System.out.println("\n----------------------------------------");
+                System.out.printf("CLIENTE #%d\n", contador);
+                System.out.println("----------------------------------------");
+
+                System.out.printf("Nome:         %s\n", dados[0]);
+                System.out.printf("CPF:          %s\n", dados[1]);
+                System.out.printf("Idade:        %s anos\n", dados[2]);
+                System.out.printf("Telefone:     %s\n", dados[3]);
+                System.out.printf("Email:        %s\n", dados[4]);
             }
-
-            contador++;
 
             System.out.println("\n----------------------------------------");
-            System.out.printf("FILME #%d\n", contador);
-            System.out.println("----------------------------------------");
+            System.out.println("Total de clientes cadastrados: " + contador);
+            System.out.println("========================================");
 
-            System.out.printf("ATRIBUTO CLIENTE 1:       %s\n", dados[0]);
-            System.out.printf("ATRIBUTO CLIENTE 2:          %s\n", dados[1]);
-            System.out.printf("ATRIBUTO CLIENTE 3:%s anos\n", dados[2]);
-            System.out.printf("ATRIBUTO CLIENTE 4:      %s minutos\n", dados[3]);
-            System.out.printf("ATRIBUTO CLIENTE 5:       %s\n", dados[4]);
-        }
-
-        System.out.println("\n----------------------------------------");
-        System.out.println("Total de clientes: " + contador);
-        System.out.println("========================================");
-
-    } catch (IOException e) {
-
-        System.out.println("Erro ao ler arquivo: " + e.getMessage());
-
-            }
+        } catch (IOException e) {
+            System.out.println("Erro ao ler arquivo: " + e.getMessage());
         }
     }
-        
-        public static void listarLocacaoPorCliente(){
-            
-            System.out.println("Lista de locacoes por cliente");
-            
-        String LerLocacaoPorCliente = "clientes.txt";
-        try (BufferedReader br = new BufferedReader(new FileReader(LerLocacaoPorCliente))){
+
+    public static void listarLocacaoPorCliente(String cpfBusca) {
+
+        System.out.println("\n LOCACOES DO CLIENTE (CPF: " + cpfBusca + ")");
+
+        String arquivo = "locacoes.txt";
+
+        try (BufferedReader br = new BufferedReader(
+                new FileReader(arquivo))) {
+
             String linha;
+            int contador = 0;
+
             while ((linha = br.readLine()) != null) {
-                System.out.println(linha);
+
+                String[] dados = linha.split(";");
+
+                // Verifica se o registro possui os 4 campos
+                if (dados.length != 4) {
+                    System.out.println("Registro invalido: " + linha);
+                    continue;
+                }
+
+                // Filtra apenas as locacoes do CPF informado
+                if (dados[0].equalsIgnoreCase(cpfBusca)) {
+                    contador++;
+
+                    System.out.println("\n----------------------------------------");
+                    System.out.printf("LOCACAO #%d\n", contador);
+                    System.out.println("----------------------------------------");
+
+                    System.out.printf("CPF Cliente:  %s\n", dados[0]);
+                    System.out.printf("Filme:        %s\n", dados[1]);
+                    System.out.printf("Data:         %s\n", dados[2]);
+                    System.out.printf("Valor Total:  R$ %s\n", dados[3]);
+                }
             }
+
+            System.out.println("\n----------------------------------------");
+            System.out.println("Total de locacoes deste cliente: " + contador);
+            System.out.println("========================================");
+
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Erro ao ler arquivo: " + e.getMessage());
         }
     }
-        
-        public static void listarLocacao(){
-            
-            System.out.println("Lista de locacoes");
-            
-        String LerLocacao = "arquivo.txt";
-        
-        try (BufferedReader br = new BufferedReader(new FileReader(LerLocacao))){
+
+    public static void listarLocacao() {
+
+        System.out.println("\n HISTORICO GERAL DE LOCACOES");
+
+        String arquivo = "locacoes.txt";
+
+        try (BufferedReader br = new BufferedReader(
+                new FileReader(arquivo))) {
+
             String linha;
+            int contador = 0;
+
             while ((linha = br.readLine()) != null) {
-                System.out.println(linha);
+
+                String[] dados = linha.split(";");
+
+                // Verifica se o registro possui os 4 campos
+                if (dados.length != 4) {
+                    System.out.println("Registro invalido: " + linha);
+                    continue;
+                }
+
+                contador++;
+
+                System.out.println("\n----------------------------------------");
+                System.out.printf("LOCACAO #%d\n", contador);
+                System.out.println("----------------------------------------");
+
+                System.out.printf("CPF Cliente:  %s\n", dados[0]);
+                System.out.printf("Filme:        %s\n", dados[1]);
+                System.out.printf("Data:         %s\n", dados[2]);
+                System.out.printf("Valor Total:  R$ %s\n", dados[3]);
             }
+
+            System.out.println("\n----------------------------------------");
+            System.out.println("Total de locacoes registradas: " + contador);
+            System.out.println("========================================");
+
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Erro ao ler arquivo: " + e.getMessage());
         }
     }
 }
