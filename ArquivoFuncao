@@ -24,7 +24,7 @@ public class ArquivoFuncao {
         }
     }
 
-    // Le informações do arquivo
+    // Ler informações do arquivo
     public static void listar(String arquivo) {
 
         try (BufferedReader br = new BufferedReader(
