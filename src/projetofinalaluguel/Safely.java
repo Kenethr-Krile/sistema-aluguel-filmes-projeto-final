@@ -3,7 +3,7 @@ package projetofinalaluguel;
 
 import java.util.Scanner;
 
-//Classe auxiliar para tratamento de erros relacionados ao tipo de variavel digita pelo cliente em inputs.
+//Classe auxiliar para tratamento de erros relacionados ao tipo de variavel digitada pelo cliente em inputs.
 public class Safely {
     
     //tratamento de inteiros.
